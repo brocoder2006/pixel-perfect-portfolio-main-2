@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 50 100% 50%;
+    --primary-foreground: 0 0% 5%;
+
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 55%;
+
+    --accent: 50 100% 50%;
+    --accent-foreground: 0 0% 5%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 50 100% 50%;
+
+    --radius: 0.75rem;
+
+    --font-display: 'Orbitron', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    --glow-primary: 0 0 20px hsl(50 100% 50% / 0.3);
+    --glow-primary-strong: 0 0 40px hsl(50 100% 50% / 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .hazard-stripe {
+    background: repeating-linear-gradient(-45deg,
+        hsl(50 100% 50%),
+        hsl(50 100% 50%) 20px,
+        hsl(0 0% 7%) 20px,
+        hsl(0 0% 7%) 40px);
+  }
+
+  .hazard-stripe-thin {
+    background: repeating-linear-gradient(-45deg,
+        hsl(50 100% 50%),
+        hsl(50 100% 50%) 10px,
+        hsl(0 0% 7%) 10px,
+        hsl(0 0% 7%) 20px);
+  }
+
+  .glow-text {
+    text-shadow: var(--glow-primary);
+  }
+
+  .glow-text-strong {
+    text-shadow: var(--glow-primary-strong);
+  }
+
+  .glow-box {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-box-strong {
+    box-shadow: var(--glow-primary-strong);
+  }
+
+  .skill-card {
+    @apply bg-secondary border border-border rounded-lg p-6 flex flex-col items-center gap-3 transition-all duration-300;
+  }
+
+  .skill-card:hover {
+    @apply border-primary;
+    box-shadow: var(--glow-primary);
+    transform: translateY(-4px);
+  }
+
+  .section-divider {
+    height: 4px;
+    @apply hazard-stripe-thin w-full;
+  }
+
+  .vertical-line {
+    width: 2px;
+    background: linear-gradient(to bottom,
+        transparent,
+        hsl(50 100% 50% / 0.5),
+        transparent);
+  }
+
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: hsl(50 100% 50%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(hsl(0 0% 15% / 0.5) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(0 0% 15% / 0.5) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+}
