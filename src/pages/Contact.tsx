@@ -105,11 +105,11 @@ const Contact = () => {
                         </div>
                         <div className="p-4 md:p-6 border-r border-primary-foreground/10 hidden md:block">
                             <span className="block text-primary-foreground/30 mb-1">Contacts</span>
-                            <span>hello@studio.com</span>
+                            <span>sssdhamaka@gmail.com</span>
                         </div>
                         <div className="p-4 md:p-6 hidden md:block">
                             <span className="block text-primary-foreground/30 mb-1">Location</span>
-                            <span>New York, NY</span>
+                            <span>West Bengal, India</span>
                         </div>
                     </div>
                     <div className="h-1 bg-primary-foreground/10">
@@ -169,7 +169,7 @@ const Contact = () => {
                                         </div>
                                         <div>
                                             <span className="text-xs uppercase tracking-widest text-muted-foreground block">Phone</span>
-                                            <span className="font-medium">207 207 3072</span>
+                                            <span className="font-medium">6290359386</span>
                                         </div>
                                     </a>
                                 </ScrollReveal>
@@ -181,7 +181,7 @@ const Contact = () => {
                                         </div>
                                         <div>
                                             <span className="text-xs uppercase tracking-widest text-muted-foreground block">Location</span>
-                                            <span className="font-medium">447 Broadway, New York, NY 10013</span>
+                                            <span className="font-medium">West Bengal, India</span>
                                         </div>
                                     </div>
                                 </ScrollReveal>

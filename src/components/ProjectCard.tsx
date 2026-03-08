@@ -6,6 +6,7 @@ interface ProjectCardProps {
     title: string;
     category: string;
     image: string;
+    link?: string;
     className?: string;
 }
 
@@ -13,16 +14,19 @@ interface ProjectCardProps {
 const gsapEase = [0.22, 1, 0.36, 1] as const;
 const gsapEaseIn = [0.55, 0.055, 0.675, 0.19] as const;
 
-const ProjectCard = ({ index, title, category, image, className = "" }: ProjectCardProps) => {
-    const ref = useRef<HTMLDivElement>(null);
+const ProjectCard = ({ index, title, category, image, link, className = "" }: ProjectCardProps) => {
+    const ref = useRef<HTMLAnchorElement>(null);
     const isInView = useInView(ref, { once: true, margin: "-50px" });
 
     const stagger = 0.15 * index + 0.4;
 
     return (
-        <motion.div
+        <motion.a
+            href={link || "#"}
+            target="_blank"
+            rel="noopener noreferrer"
             ref={ref}
-            className={`group relative cursor-pointer overflow-hidden rounded-lg ${className}`}
+            className={`block group relative cursor-pointer overflow-hidden rounded-lg ${className}`}
             // Container reveal: clip from bottom
             initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
             animate={isInView ? { clipPath: "inset(0% 0% 0% 0%)" } : {}}
@@ -100,7 +104,7 @@ const ProjectCard = ({ index, title, category, image, className = "" }: ProjectC
                 animate={isInView ? { x: "200%" } : {}}
                 transition={{ duration: 1.2, delay: stagger + 0.4, ease: gsapEaseIn }}
             />
-        </motion.div>
+        </motion.a>
     );
 };
 

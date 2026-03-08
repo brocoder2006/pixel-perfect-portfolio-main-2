@@ -7,31 +7,44 @@ import SideNav from "@/components/SideNav";
 import BottomNav from "@/components/BottomNav";
 import ProjectCard from "@/components/ProjectCard";
 
-// Using the same placeholder image for all projects for now
-import shapeImg from "@/assets/3d-shape.png";
+import gameImg from "@/assets/projects/game.png";
+import shopcartImg from "@/assets/projects/shopcart.png";
+import amazonImg from "@/assets/projects/amazon.png";
+import brocodeImg from "@/assets/projects/brocode.png";
+import luminolensImg from "@/assets/projects/luminolens.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const projectsData = [
     {
-        title: "E-Commerce Reimagined",
-        category: "Full Stack",
-        image: shapeImg,
-    },
-    {
-        title: "Fintech Dashboard UI",
+        title: "Amazon-Clone",
         category: "Frontend",
-        image: shapeImg,
+        image: gameImg,
+        link: "https://clone-e4d08.web.app/",
     },
     {
-        title: "AI Copywriter Platform",
+        title: "Puja",
+        category: "Culture & Event",
+        image: shopcartImg,
+        link: "https://puja-website-tan.vercel.app/",
+    },
+    {
+        title: "Sayantan's game",
         category: "Full Stack",
-        image: shapeImg,
+        image: amazonImg,
+        link: "https://sayantan-zeta.vercel.app",
     },
     {
-        title: "Healthcare Portal",
-        category: "Backend",
-        image: shapeImg,
+        title: "Shopcart",
+        category: "E-Commerce",
+        image: brocodeImg,
+        link: "https://shopcartyt-flax.vercel.app/",
+    },
+    {
+        title: "LuminoLens",
+        category: "Product Showcase",
+        image: luminolensImg,
+        link: "https://luminolens-phi.vercel.app/",
     },
 ];
 
@@ -133,10 +146,10 @@ const Projects = () => {
                             {projectsData.map((project, index) => (
                                 <div key={project.title} className={index % 2 !== 0 ? "md:mt-24" : ""}>
                                     <ProjectCard
+                                        key={index}
                                         index={index}
-                                        title={project.title}
-                                        category={project.category}
-                                        image={project.image}
+                                        {...project}
+                                        className="w-full"
                                     />
                                 </div>
                             ))}
