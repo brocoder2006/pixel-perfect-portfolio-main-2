@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,41 +7,50 @@
 
 @layer base {
   :root {
-    --background: 0 0% 7%;
+    --background: 0 0% 4%;
     --foreground: 0 0% 95%;
 
-    --card: 0 0% 10%;
+    --card: 0 0% 8%;
     --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 10%;
+    --popover: 0 0% 8%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 50 100% 50%;
-    --primary-foreground: 0 0% 5%;
+    --primary: 15 100% 55%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 14%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 70%;
 
-    --muted: 0 0% 16%;
+    --muted: 0 0% 15%;
     --muted-foreground: 0 0% 55%;
 
-    --accent: 50 100% 50%;
-    --accent-foreground: 0 0% 5%;
+    --accent: 15 100% 55%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
-    --ring: 50 100% 50%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 15 100% 55%;
 
     --radius: 0.75rem;
 
-    --font-display: 'Orbitron', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'Space Grotesk', sans-serif;
 
-    --glow-primary: 0 0 20px hsl(50 100% 50% / 0.3);
-    --glow-primary-strong: 0 0 40px hsl(50 100% 50% / 0.5);
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 0 0% 70%;
+    --sidebar-primary: 15 100% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 15 100% 55%;
+
+    --glow-primary: 0 0 20px hsl(15 100% 55% / 0.3);
+    --glow-primary-strong: 0 0 40px hsl(15 100% 55% / 0.5);
   }
 }
 
@@ -68,16 +78,16 @@
 @layer components {
   .hazard-stripe {
     background: repeating-linear-gradient(-45deg,
-        hsl(50 100% 50%),
-        hsl(50 100% 50%) 20px,
+        hsl(15 100% 55%),
+        hsl(15 100% 55%) 20px,
         hsl(0 0% 7%) 20px,
         hsl(0 0% 7%) 40px);
   }
 
   .hazard-stripe-thin {
     background: repeating-linear-gradient(-45deg,
-        hsl(50 100% 50%),
-        hsl(50 100% 50%) 10px,
+        hsl(15 100% 55%),
+        hsl(15 100% 55%) 10px,
         hsl(0 0% 7%) 10px,
         hsl(0 0% 7%) 20px);
   }
@@ -117,7 +127,7 @@
     width: 2px;
     background: linear-gradient(to bottom,
         transparent,
-        hsl(50 100% 50% / 0.5),
+        hsl(15 100% 55% / 0.5),
         transparent);
   }
 
@@ -125,7 +135,7 @@
     position: absolute;
     width: 4px;
     height: 4px;
-    background: hsl(50 100% 50%);
+    background: hsl(15 100% 55%);
     border-radius: 50%;
     pointer-events: none;
   }
@@ -135,5 +145,12 @@
       linear-gradient(hsl(0 0% 15% / 0.5) 1px, transparent 1px),
       linear-gradient(90deg, hsl(0 0% 15% / 0.5) 1px, transparent 1px);
     background-size: 60px 60px;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--muted-foreground)));
   }
 }

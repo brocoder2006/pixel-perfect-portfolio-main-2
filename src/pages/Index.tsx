@@ -5,6 +5,8 @@ import ParticleField from "@/components/ParticleField";
 import { Play } from "lucide-react";
 import About from "./About";
 import Skills from "./Skills";
+import Projects from "./Projects";
+import Contact from "./Contact";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -30,6 +32,8 @@ const Index = () => {
   const container = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     gsap.from(aboutRef.current, {
@@ -48,6 +52,32 @@ const Index = () => {
     gsap.from(skillsRef.current, {
       scrollTrigger: {
         trigger: skillsRef.current,
+        start: "top 85%",
+        end: "top 30%",
+        scrub: 1,
+      },
+      y: 100,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out"
+    });
+
+    gsap.from(projectsRef.current, {
+      scrollTrigger: {
+        trigger: projectsRef.current,
+        start: "top 85%",
+        end: "top 30%",
+        scrub: 1,
+      },
+      y: 100,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out"
+    });
+
+    gsap.from(contactRef.current, {
+      scrollTrigger: {
+        trigger: contactRef.current,
         start: "top 85%",
         end: "top 30%",
         scrub: 1,
@@ -224,6 +254,14 @@ const Index = () => {
 
       <div ref={skillsRef}>
         <Skills />
+      </div>
+
+      <div ref={projectsRef}>
+        <Projects />
+      </div>
+
+      <div ref={contactRef}>
+        <Contact />
       </div>
     </div>
   );
